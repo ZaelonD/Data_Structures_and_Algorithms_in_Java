@@ -1,4 +1,4 @@
-package exercises.chapter_2_arrays;
+package exercises.chapter_2_arrays.high;
 
 public class HighArray {
     private final long[] a; // ref to array a
