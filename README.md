@@ -4,8 +4,8 @@
 
 2. [Chapter II. Arrays](#chapter-ii-arrays)  
    2.1. [Add a method called getMax()](#21-add-a-method-called-getmax)  
-   2.2. [Modify the method getMax() to removeMax()](#22-modify-the-method-getmax-to-removemax)
-
+   2.2. [Modify the method getMax() to removeMax()](#22-modify-the-method-getmax-to-removemax)  
+   2.3. [Implement a sorting scheme]()
 ## Chapter II. Arrays
 
 ### 2.1. Add a method called getMax()
@@ -47,5 +47,23 @@ public long removeMax() {
             max = a[i];
     delete(max);
     return max;
+}
+```
+
+### 2.3. Implement a sorting scheme
+
+The removeMax() method in Programming Project 2.2 suggests a way to sort
+the contents of an array by key value. Implement a sorting scheme that does
+not require modifying the HighArray class, but only the code in main().
+You’ll need a second array, which will end up inversely sorted.
+(This scheme is a rather crude variant of the selection sort in Chapter 3, "Simple Sorting.")
+
+**My implementation of sorting scheme:**
+
+```
+long elem;
+    while ((elem = arr.removeMax()) != -1) {
+        arr1.insert(elem);
+    }
 }
 ```
