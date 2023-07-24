@@ -46,9 +46,9 @@ public class HighArray {
 
     // maximum search method
     public long getMax() {
-        long max = a[0];
         if (nElems == 0)
             return -1;
+        long max = a[0];
         for (int i = 1; i < nElems; i++)
             if (a[i] > max)
                 max = a[i];
