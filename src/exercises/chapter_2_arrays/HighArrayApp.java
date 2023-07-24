@@ -3,8 +3,9 @@ package exercises.chapter_2_arrays;
 public class HighArrayApp {
     public static void main(String[] args) {
         int maxSize = 100; // array size
-        HighArray arr; // reference to array
+        HighArray arr, arr1; // reference to array
         arr = new HighArray(maxSize); // create the array
+        arr1 = new HighArray(maxSize); // create the array
         arr.insert(77); // insert 10 items
         arr.insert(99);
         arr.insert(44);
@@ -29,5 +30,11 @@ public class HighArrayApp {
         arr.display(); // display items again
         System.out.println("\nMax key = " + arr.removeMax());
         arr.display(); // display items again
+        System.out.println();
+        long elem;
+        while ((elem = arr.removeMax()) != -1) {
+            arr1.insert(elem);
+        }
+        arr1.display();
     }
 }
