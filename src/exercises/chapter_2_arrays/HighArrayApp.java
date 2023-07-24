@@ -16,7 +16,7 @@ public class HighArrayApp {
         arr.insert(66);
         arr.insert(33);
         arr.display(); // display items
-        System.out.println();
+        System.out.println("\nMax key = " + arr.getMax()); // testing getMax method
         int searchKey = 35; // search for item
         if (arr.find(searchKey))
             System.out.println("Found " + searchKey);
@@ -26,5 +26,6 @@ public class HighArrayApp {
         arr.delete(55);
         arr.delete(99);
         arr.display(); // display items again
+        System.out.println("\nMax key = " + arr.getMax());
     }
 }
