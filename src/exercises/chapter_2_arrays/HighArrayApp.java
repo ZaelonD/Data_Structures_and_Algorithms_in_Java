@@ -16,16 +16,18 @@ public class HighArrayApp {
         arr.insert(66);
         arr.insert(33);
         arr.display(); // display items
-        System.out.println("\nMax key = " + arr.getMax()); // testing getMax method
+        System.out.println("\nMax key = " + arr.removeMax()); // testing removeMax method
+        arr.display(); // display items
         int searchKey = 35; // search for item
         if (arr.find(searchKey))
-            System.out.println("Found " + searchKey);
+            System.out.println("\nFound " + searchKey);
         else
-            System.out.println("Can’t find " + searchKey);
+            System.out.println("\nCan’t find " + searchKey);
         arr.delete(0); // delete 3 items
         arr.delete(55);
         arr.delete(99);
         arr.display(); // display items again
-        System.out.println("\nMax key = " + arr.getMax());
+        System.out.println("\nMax key = " + arr.removeMax());
+        arr.display(); // display items again
     }
 }

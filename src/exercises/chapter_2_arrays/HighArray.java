@@ -44,14 +44,15 @@ public class HighArray {
             System.out.print(a[j] + " "); // display it
     }
 
-    // maximum search method
-    public long getMax() {
+    // maximum search method -> maximum removal method
+    public long removeMax() {
         if (nElems == 0)
             return -1;
         long max = a[0];
         for (int i = 1; i < nElems; i++)
             if (a[i] > max)
                 max = a[i];
+        delete(max);
         return max;
     }
 }
