@@ -5,7 +5,9 @@
 2. [Chapter II. Arrays](#chapter-ii-arrays)  
    2.1. [Add a method called getMax()](#21-add-a-method-called-getmax)  
    2.2. [Modify the method getMax() to removeMax()](#22-modify-the-method-getmax-to-removemax)  
-   2.3. [Implement a sorting scheme](#23-implement-a-sorting-scheme)
+   2.3. [Implement a sorting scheme](#23-implement-a-sorting-scheme)  
+   2.4. [Insert with use a binary search](#24-insert-with-use-a-binary-search)
+
 ## Chapter II. Arrays
 
 ### 2.1. Add a method called getMax()
@@ -65,5 +67,45 @@ long elem;
     while ((elem = arr.removeMax()) != -1) {
         arr1.insert(elem);
     }
+}
+```
+
+### 2.4. Insert with use a binary search
+
+Modify the orderedArray.java program so that the insert() and
+delete() routines, as well as find(), use a binary search, as suggested in the text.
+
+**My implementation of insert():**
+
+```
+public void insert(long value) {
+    int lowerBound = 0;
+    int upperBound = nElems - 1;
+    int curIn;
+    while (true) {
+        curIn = (lowerBound + upperBound) / 2;
+        if (a[curIn] == value) {
+            break;
+        } else if (lowerBound > upperBound) {
+            if (value >= a[curIn]) {
+                if (a[curIn] == 0 && nElems == 0) {
+                    curIn = 0;
+                } else {
+                    curIn++;
+                }
+            }
+            break;
+        } else {
+            if (a[curIn] < value) {
+                lowerBound = curIn + 1;
+            } else {
+                upperBound = curIn - 1;
+            }
+        }
+    }
+    for (int k = nElems; k > curIn; k--) // move bigger ones up
+        a[k] = a[k - 1];
+    a[curIn] = value; // insert it
+    nElems++; // increment size
 }
 ```
