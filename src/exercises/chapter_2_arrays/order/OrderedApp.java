@@ -21,6 +21,7 @@ public class OrderedApp {
         else
             System.out.println("Can’t find " + searchKey);
         arr.display(); // display items
+        System.out.println();
         arr.delete(0); // delete 3 items
         arr.delete(55);
         arr.delete(99);

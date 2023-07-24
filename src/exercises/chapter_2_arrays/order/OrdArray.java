@@ -4,8 +4,8 @@ public class OrdArray {
     private final long[] a; // ref to array a
     private int nElems; // number of data items
 
-    public OrdArray(int max) // constructor
-    {
+    // constructor
+    public OrdArray(int max) {
         a = new long[max]; // create array
         nElems = 0;
     }
@@ -24,43 +24,61 @@ public class OrdArray {
                 return curIn; // found it
             else if (lowerBound > upperBound)
                 return nElems; // can’t find it
-            else // divide range
-            {
+            else {
                 if (a[curIn] < searchKey)
                     lowerBound = curIn + 1; // it’s in upper half
                 else
                     upperBound = curIn - 1; // it’s in lower half
-            } // end else divide range
+            }
         }
     }
 
-    public void insert(long value) // put element into array
-    {
-        int j;
-        for (j = 0; j < nElems; j++) // find where it goes
-            if (a[j] > value) // (linear search)
+    // put element into array
+    public void insert(long value) {
+        int lowerBound = 0;
+        int upperBound = nElems - 1;
+        int curIn;
+        while (true) {
+            curIn = (lowerBound + upperBound) / 2;
+            if (a[curIn] == value) {
                 break;
-        for (int k = nElems; k > j; k--) // move bigger ones up
+            } else if (lowerBound > upperBound) {
+                if (value >= a[curIn]) {
+                    if (a[curIn] == 0 && nElems == 0) {
+                        curIn = 0;
+                    } else {
+                        curIn++;
+                    }
+                }
+                break;
+            } else {
+                if (a[curIn] < value) {
+                    lowerBound = curIn + 1;
+                } else {
+                    upperBound = curIn - 1;
+                }
+            }
+        }
+        for (int k = nElems; k > curIn; k--) // move bigger ones up
             a[k] = a[k - 1];
-        a[j] = value; // insert it
+        a[curIn] = value; // insert it
         nElems++; // increment size
-    } // end insert()
+    }
 
-    public boolean delete(long value) {
+    public void delete(long value) {
         int j = find(value);
         if (j == nElems) // can’t find it
-            return false;
-        else // found it
         {
+            System.out.println("Element not found");
+        } else {
             for (int k = j; k < nElems; k++) // move bigger ones down
                 a[k] = a[k + 1];
             nElems--; // decrement size
-            return true;
         }
-    } // end delete()
+    }
 
-    public void display() // displays array contents
-    {
+    // displays array contents
+    public void display() {
         for (int j = 0; j < nElems; j++) // for each element,
             System.out.print(a[j] + " "); // display it
     }
