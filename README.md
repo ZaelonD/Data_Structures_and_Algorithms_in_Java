@@ -7,7 +7,8 @@
    2.2. [Modify the method getMax() to removeMax()](#22-modify-the-method-getmax-to-removemax)  
    2.3. [Implement a sorting scheme](#23-implement-a-sorting-scheme)  
    2.4. [Insert with use a binary search](#24-insert-with-use-a-binary-search)  
-   2.5. [Add merge() method](#25-add-merge-method)
+   2.5. [Add merge() method](#25-add-merge-method)  
+   2.6. [Add noDups() method](#26-add-nodups-method)
 ## Chapter II. Arrays
 
 ### 2.1. Add a method called getMax()
@@ -129,5 +130,32 @@ public void merge(long[] inputArr) {
     for (long value : inputArr)
         if (find(value) == nElems)
             insert(value);
+}
+```
+
+### 2.6. Add noDups() method
+
+Write a noDups() method for the HighArray class of the highArray.java
+program. This method should remove all duplicates from the
+array. That is, if three items with the key 17 appear in the array, noDups()
+should remove two of them. Don’t worry about maintaining the order of the
+items. One approach is to first compare every item with all the other items and
+overwrite any duplicates with a null (or a distinctive value that isn’t used for
+real keys). Then remove all the nulls. Of course, the array size will be reduced.
+
+**My implementation of noDups() method:**
+
+```
+public void noDups() {
+    for (int i = 0; i < nElems; i++) {
+        for (int j = 0; j < nElems; j++) {
+            if (i == j)
+                continue;
+            if (a[i] == a[j]) {
+                a[j] = -1;
+                delete(-1);
+            }
+        }
+    }
 }
 ```
