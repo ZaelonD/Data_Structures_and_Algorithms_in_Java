@@ -1,4 +1,4 @@
-package exercises.chapter_3_simple_sorting;
+package exercises.chapter_3_simple_sorting.bubble_sort;
 
 public class ArrayBub {
     private final long[] a; // ref to array a
