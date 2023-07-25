@@ -82,4 +82,12 @@ public class OrdArray {
         for (int j = 0; j < nElems; j++) // for each element,
             System.out.print(a[j] + " "); // display it
     }
+
+    public void merge(long[] inputArr) {
+        for (long value : inputArr) {
+            if (find(value) == nElems) {
+                insert(value);
+            }
+        }
+    }
 }

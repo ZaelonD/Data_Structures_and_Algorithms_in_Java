@@ -5,26 +5,17 @@ public class OrderedApp {
         int maxSize = 100; // array size
         OrdArray arr; // reference to array
         arr = new OrdArray(maxSize); // create the array
-        arr.insert(77); // insert 10 items
-        arr.insert(99);
-        arr.insert(44);
-        arr.insert(55);
-        arr.insert(22);
-        arr.insert(88);
-        arr.insert(11);
-        arr.insert(0);
-        arr.insert(66);
-        arr.insert(33);
-        int searchKey = 55; // search for item
-        if (arr.find(searchKey) != arr.size())
-            System.out.println("Found " + searchKey);
-        else
-            System.out.println("Can’t find " + searchKey);
+        long[] arr1 = new long[]{34, 12, 87}; // create the array
+        for (int i = 0; i < 10; i++) {
+            arr.insert((long) (Math.random() * 100));
+        }
         arr.display(); // display items
         System.out.println();
-        arr.delete(0); // delete 3 items
-        arr.delete(55);
-        arr.delete(99);
+        for (long l : arr1) {
+            System.out.print(l + " ");
+        }
+        System.out.println();
+        arr.merge(arr1);
         arr.display(); // display items again
     }
 }
