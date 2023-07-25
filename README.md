@@ -109,3 +109,25 @@ public void insert(long value) {
     nElems++; // increment size
 }
 ```
+
+### 2.5. Add merge() method
+
+Add a merge() method to the OrdArray class in the orderedArray.java
+program so that you can merge two ordered source arrays into an
+ordered destination array. Write code in main() that inserts some random
+numbers into the two source arrays, invokes merge(), and displays the contents
+of the resulting destination array. The source arrays may hold different
+numbers of data items. In your algorithm you will need to compare the keys of
+the source arrays, picking the smallest one to copy to the destination. You’ll
+also need to handle the situation when one source array exhausts its contents
+before the other.
+
+**My implementation of merge() method:**
+
+```
+public void merge(long[] inputArr) {
+    for (long value : inputArr)
+        if (find(value) == nElems)
+            insert(value);
+}
+```
