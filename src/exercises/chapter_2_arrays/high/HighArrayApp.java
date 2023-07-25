@@ -7,15 +7,16 @@ public class HighArrayApp {
         arr = new HighArray(maxSize); // create the array
         arr1 = new HighArray(maxSize); // create the array
         arr.insert(77); // insert 10 items
-        arr.insert(99);
+        arr.insert(22);
         arr.insert(44);
         arr.insert(55);
         arr.insert(22);
         arr.insert(88);
         arr.insert(11);
-        arr.insert(0);
+        arr.insert(77);
         arr.insert(66);
-        arr.insert(33);
+        arr.insert(55);
+        arr.noDups();
         arr.display(); // display items
         System.out.println("\nMax key = " + arr.removeMax()); // testing removeMax method
         arr.display(); // display items

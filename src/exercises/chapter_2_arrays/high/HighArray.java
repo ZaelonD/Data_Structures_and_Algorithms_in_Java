@@ -55,4 +55,18 @@ public class HighArray {
         delete(max);
         return max;
     }
+
+    // method remove all duplicates
+    public void noDups() {
+        for (int i = 0; i < nElems; i++) {
+            for (int j = 0; j < nElems; j++) {
+                if (i == j)
+                    continue;
+                if (a[i] == a[j]) {
+                    a[j] = -1;
+                    delete(-1);
+                }
+            }
+        }
+    }
 }
