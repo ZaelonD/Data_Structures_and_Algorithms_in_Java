@@ -6,8 +6,8 @@
    2.1. [Add a method called getMax()](#21-add-a-method-called-getmax)  
    2.2. [Modify the method getMax() to removeMax()](#22-modify-the-method-getmax-to-removemax)  
    2.3. [Implement a sorting scheme](#23-implement-a-sorting-scheme)  
-   2.4. [Insert with use a binary search](#24-insert-with-use-a-binary-search)
-
+   2.4. [Insert with use a binary search](#24-insert-with-use-a-binary-search)  
+   2.5. [Add merge() method](#25-add-merge-method)
 ## Chapter II. Arrays
 
 ### 2.1. Add a method called getMax()
