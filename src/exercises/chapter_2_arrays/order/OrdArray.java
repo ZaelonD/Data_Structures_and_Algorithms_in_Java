@@ -84,10 +84,8 @@ public class OrdArray {
     }
 
     public void merge(long[] inputArr) {
-        for (long value : inputArr) {
-            if (find(value) == nElems) {
+        for (long value : inputArr)
+            if (find(value) == nElems)
                 insert(value);
-            }
-        }
     }
 }
