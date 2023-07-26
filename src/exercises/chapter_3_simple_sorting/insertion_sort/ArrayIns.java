@@ -36,10 +36,4 @@ public class ArrayIns {
             a[in] = temp; // insert marked item
         }
     }
-
-    private void swap(int one, int two) {
-        long temp = a[one];
-        a[one] = a[two];
-        a[two] = temp;
-    }
 }
