@@ -23,11 +23,16 @@ public class ArrayBub {
     }
 
     public void bubbleSort() {
-        int out, in;
-        for (out = nElems - 1; out > 1; out--) // outer loop (backward)
-            for (in = 0; in < out; in++) // inner loop (forward)
-                if (a[in] > a[in + 1]) // out of order?
+        int right, left, in;
+        for (right = nElems - 1, left = 0; right > left + 1; right--, left++) {
+            for (in = 0; in < right; in++) // inner loop (forward)
+                if (a[in] > a[in + 1]) // right of order?
                     swap(in, in + 1); // swap them
+            for (in = right - 1; in > left; in--) {
+                if (a[in] < a[in - 1])
+                    swap(in, in - 1); // swap them
+            }
+        }
     }
 
     private void swap(int one, int two) {
