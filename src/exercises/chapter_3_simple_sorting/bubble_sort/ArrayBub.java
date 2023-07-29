@@ -28,10 +28,9 @@ public class ArrayBub {
             for (in = 0; in < right; in++) // inner loop (forward)
                 if (a[in] > a[in + 1]) // right of order?
                     swap(in, in + 1); // swap them
-            for (in = right - 1; in > left; in--) {
-                if (a[in] < a[in - 1])
+            for (in = right - 1; in > left; in--)
+                if (a[in] < a[in - 1]) // left of order?
                     swap(in, in - 1); // swap them
-            }
         }
     }
 
