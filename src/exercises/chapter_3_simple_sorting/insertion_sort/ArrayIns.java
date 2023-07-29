@@ -36,4 +36,8 @@ public class ArrayIns {
             a[in] = temp; // insert marked item
         }
     }
+
+    public long median() {
+        return nElems % 2 == 0 ? (a[nElems / 2] + a[(nElems - 1) / 2]) / 2 : a[nElems / 2];
+    }
 }
