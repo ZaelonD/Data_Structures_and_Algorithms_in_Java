@@ -9,6 +9,10 @@
    2.4. [Insert with use a binary search](#24-insert-with-use-a-binary-search)  
    2.5. [Add merge() method](#25-add-merge-method)  
    2.6. [Add noDups() method](#26-add-nodups-method)
+3. [Chapter III. Simple Sorting](#chapter-iii-simple-sorting)  
+   3.1. [Modify the bubbleSort() method](#31-modify-the-bubblesort-method)
+
+
 ## Chapter II. Arrays
 
 ### 2.1. Add a method called getMax()
@@ -156,6 +160,34 @@ public void noDups() {
                 delete(-1);
             }
         }
+    }
+}
+```
+
+## Chapter III. Simple Sorting
+
+### 3.1. Modify the bubbleSort() method
+
+In the bubbleSort.java program and the BubbleSort Workshop
+applet, the in index always goes from left to right, finding the largest item and
+carrying it toward out on the right. Modify the bubbleSort() method so that it’s
+bidirectional. This means the in index will first carry the largest item from left
+to right as before, but when it reaches out, it will reverse and carry the smallest
+item from right to left. You’ll need two outer indexes, one on the right (the old
+out) and another on the left.
+
+**My modify of bubbleSort() method:**
+
+```
+public void bubbleSort() {
+    int right, left, in;
+    for (right = nElems - 1, left = 0; right > left + 1; right--, left++) {
+        for (in = 0; in < right; in++) // inner loop (forward)
+            if (a[in] > a[in + 1]) // right of order?
+                swap(in, in + 1); // swap them
+        for (in = right - 1; in > left; in--)
+            if (a[in] < a[in - 1]) // left of order?
+                swap(in, in - 1); // swap them
     }
 }
 ```
