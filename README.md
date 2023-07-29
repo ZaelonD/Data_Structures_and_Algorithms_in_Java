@@ -2,6 +2,7 @@
 
 ## Contents
 
+1. [Chapter I. Overview](#chapter-i-overview)
 2. [Chapter II. Arrays](#chapter-ii-arrays)  
    2.1. [Add a method called getMax()](#21-add-a-method-called-getmax)  
    2.2. [Modify the method getMax() to removeMax()](#22-modify-the-method-getmax-to-removemax)  
@@ -12,6 +13,9 @@
 3. [Chapter III. Simple Sorting](#chapter-iii-simple-sorting)  
    3.1. [Modify the bubbleSort() method](#31-modify-the-bubblesort-method)
 
+## Chapter I. Overview
+
+### Solving programming projects from the book Data Structures & Algorithms in Java
 
 ## Chapter II. Arrays
 
