@@ -11,7 +11,8 @@
    2.5. [Add merge() method](#25-add-merge-method)  
    2.6. [Add noDups() method](#26-add-nodups-method)
 3. [Chapter III. Simple Sorting](#chapter-iii-simple-sorting)  
-   3.1. [Modify the bubbleSort() method](#31-modify-the-bubblesort-method)
+   3.1. [Modify the bubbleSort() method](#31-modify-the-bubblesort-method)  
+   3.2. [Add median() method](#32-add-median-method)
 
 ## Chapter I. Overview
 
@@ -193,5 +194,20 @@ public void bubbleSort() {
             if (a[in] < a[in - 1]) // left of order?
                 swap(in, in - 1); // swap them
     }
+}
+```
+
+### 3.2. Add median() method
+
+Add a method called median() to the ArrayIns class in the insertSort.java
+program. This method should return the median value in the
+array. (Recall that in a group of numbers half are larger than the median and
+half are smaller.) Do it the easy way.
+
+**My implementation of median() method:**
+
+```
+public long median() {
+    return nElems % 2 == 0 ? (a[nElems / 2] + a[(nElems - 1) / 2]) / 2 : a[nElems / 2];
 }
 ```
