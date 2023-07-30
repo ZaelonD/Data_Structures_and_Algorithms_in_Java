@@ -34,6 +34,28 @@ public class ArrayBub {
         }
     }
 
+    public void oddEvenSort() {
+        boolean isSorted = true;
+        while (isSorted) {
+            int flag = 0;
+            for (int i = 0; i < nElems - 1; i += 2) {
+                if (a[i] > a[i + 1]) {
+                    swap(i, i + 1);
+                    flag++;
+                }
+            }
+            for (int i = 1; i < nElems - 1; i += 2) {
+                if (a[i] > a[i + 1]) {
+                    swap(i, i + 1);
+                    flag++;
+                }
+            }
+            if (flag == 0) {
+                isSorted = false;
+            }
+        }
+    }
+
     private void swap(int one, int two) {
         long temp = a[one];
         a[one] = a[two];
