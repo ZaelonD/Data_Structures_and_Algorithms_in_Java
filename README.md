@@ -12,7 +12,8 @@
    2.6. [Add noDups() method](#26-add-nodups-method)
 3. [Chapter III. Simple Sorting](#chapter-iii-simple-sorting)  
    3.1. [Modify the bubbleSort() method](#31-modify-the-bubblesort-method)  
-   3.2. [Add median() method](#32-add-median-method)
+   3.2. [Add median() method](#32-add-median-method)  
+   3.3. [Add noDups() method](#33-add-nodups-method)
 
 ## Chapter I. Overview
 
@@ -209,5 +210,37 @@ half are smaller.) Do it the easy way.
 ```
 public long median() {
     return nElems % 2 == 0 ? (a[nElems / 2] + a[(nElems - 1) / 2]) / 2 : a[nElems / 2];
+}
+```
+
+### 3.3. Add noDups() method
+
+To the insertSort.java program, add a method called noDups() that
+removes duplicates from a previously sorted array without disrupting the order.
+(You can use the insertionSort() method to sort the data, or you can simply
+use main() to insert the data in sorted order.) One can imagine schemes in
+which all the items from the place where a duplicate was discovered to the end
+of the array would be shifted down one space every time a duplicate was
+discovered, but this would lead to slow O(N²) time, at least when there were a
+lot of duplicates. In your algorithm, make sure no item is moved more than
+once, no matter how many duplicates there are. This will give you an algorithm
+with O(N) time.
+
+**My implementation of noDups() method:**
+
+```
+public void noDups() {
+    long[] temp = new long[nElems];
+    int j = 0, k = 0;
+    for (int i = 0; i < nElems - 1; i++) {
+        if (a[i] != a[i + 1]) {
+            temp[j++] = a[i];
+        } else {
+            k++;
+        }
+    }
+    temp[j] = a[nElems - 1];
+    nElems -= k;
+    if (nElems >= 0) System.arraycopy(temp, 0, a, 0, nElems);
 }
 ```
