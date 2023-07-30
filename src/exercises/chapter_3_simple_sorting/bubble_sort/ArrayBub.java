@@ -36,6 +36,7 @@ public class ArrayBub {
 
     public void oddEvenSort() {
         boolean isSorted = true;
+        int count = 0;
         while (isSorted) {
             int flag = 0;
             for (int i = 0; i < nElems - 1; i += 2) {
@@ -52,8 +53,11 @@ public class ArrayBub {
             }
             if (flag == 0) {
                 isSorted = false;
+            } else {
+                count++;
             }
         }
+        System.out.println("The two passes were made: " + count + " times");
     }
 
     private void swap(int one, int two) {

@@ -5,11 +5,15 @@ public class BubbleSortApp {
         int maxSize = 10; // array size
         ArrayBub arr, arr1; // reference to array
         arr = new ArrayBub(maxSize); // create the array
+        arr1 = new ArrayBub(maxSize); // create the array
         for (int j = 0; j < maxSize; j++) {
             long n = (long) (java.lang.Math.random() * (maxSize - 1));
             arr.insert(n);
         }
-        arr1 = arr;
+        for (int j = 0; j < maxSize; j++) {
+            long n = (long) (java.lang.Math.random() * (maxSize - 1));
+            arr1.insert(n);
+        }
         arr.display(); // display items
         System.out.println();
         arr1.display(); // display items
