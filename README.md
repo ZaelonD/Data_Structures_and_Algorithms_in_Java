@@ -13,7 +13,8 @@
 3. [Chapter III. Simple Sorting](#chapter-iii-simple-sorting)  
    3.1. [Modify the bubbleSort() method](#31-modify-the-bubblesort-method)  
    3.2. [Add median() method](#32-add-median-method)  
-   3.3. [Add noDups() method](#33-add-nodups-method)
+   3.3. [Add noDups() method](#33-add-nodups-method)  
+   3.4. [Add oddEvenSort() method](#34-add-oddevensort-method)
 
 ## Chapter I. Overview
 
@@ -242,5 +243,51 @@ public void noDups() {
     temp[j] = a[nElems - 1];
     nElems -= k;
     if (nElems >= 0) System.arraycopy(temp, 0, a, 0, nElems);
+}
+```
+
+### 3.4. Add oddEvenSort() method
+
+Another simple sort is the odd-even sort. The idea is to repeatedly make two
+passes through the array. On the first pass you look at all the pairs of items,
+a[j] and a[j + 1] where j is odd (j = 1, 3, 5, ...). If their key values are out of
+order, you swap them. On the second pass you do the same for all the even
+values (j = 2, 4, 6, ...). You do these two passes repeatedly until the array is
+sorted. Replace the bubbleSort() method in bubbleSort.java with
+an oddEvenSort() method. Make sure it works for varying amounts of data.
+You’ll need to figure out how many times to do the two passes.  
+The odd-even sort is actually useful in a multiprocessing environment, where a
+separate processor can operate on each odd pair simultaneously and then on
+each even pair. Because the odd pairs are independent of each other, each pair
+can be checked—and swapped, if necessary—by a different processor. This
+makes for a very fast sort.
+
+**My implementation of oddEvenSort() method:**
+
+```
+public void oddEvenSort() {
+    boolean isSorted = true;
+    int count = 0;
+    while (isSorted) {
+        int flag = 0;
+        for (int i = 0; i < nElems - 1; i += 2) {
+        if (a[i] > a[i + 1]) {
+                swap(i, i + 1);
+                flag++;
+            }
+        }
+        for (int i = 1; i < nElems - 1; i += 2) {
+            if (a[i] > a[i + 1]) {
+                swap(i, i + 1);
+                flag++;
+            }
+        }
+        if (flag == 0) {
+            isSorted = false;
+        } else {
+            count++;
+        }
+    }
+    System.out.println("The two passes were made: " + count + " times");
 }
 ```
