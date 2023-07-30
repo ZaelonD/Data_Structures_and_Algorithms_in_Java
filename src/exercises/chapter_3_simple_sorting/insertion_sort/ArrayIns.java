@@ -40,4 +40,19 @@ public class ArrayIns {
     public long median() {
         return nElems % 2 == 0 ? (a[nElems / 2] + a[(nElems - 1) / 2]) / 2 : a[nElems / 2];
     }
+
+    public void noDups() {
+        long[] temp = new long[nElems];
+        int j = 0, k = 0;
+        for (int i = 0; i < nElems - 1; i++) {
+            if (a[i] != a[i + 1]) {
+                temp[j++] = a[i];
+            } else {
+                k++;
+            }
+        }
+        temp[j] = a[nElems - 1];
+        nElems -= k;
+        if (nElems >= 0) System.arraycopy(temp, 0, a, 0, nElems);
+    }
 }
