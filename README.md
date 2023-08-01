@@ -14,7 +14,8 @@
    3.1. [Modify the bubbleSort() method](#31-modify-the-bubblesort-method)  
    3.2. [Add median() method](#32-add-median-method)  
    3.3. [Add noDups() method](#33-add-nodups-method)  
-   3.4. [Add oddEvenSort() method](#34-add-oddevensort-method)
+   3.4. [Add oddEvenSort() method](#34-add-oddevensort-method)  
+   3.5. [Modify insertionSort() method](#35-modify-insertionsort-method)
 
 ## Chapter I. Overview
 
@@ -69,7 +70,7 @@ public long removeMax() {
 The removeMax() method in Programming Project 2.2 suggests a way to sort
 the contents of an array by key value. Implement a sorting scheme that does
 not require modifying the HighArray class, but only the code in main().
-You’ll need a second array, which will end up inversely sorted.
+You'll need a second array, which will end up inversely sorted.
 (This scheme is a rather crude variant of the selection sort in Chapter 3, "Simple Sorting.")
 
 **My implementation of sorting scheme:**
@@ -129,7 +130,7 @@ program so that you can merge two ordered source arrays into an
 ordered destination array. Write code in main() that inserts some random
 numbers into the two source arrays, invokes merge(), and displays the contents
 of the resulting destination array. The source arrays may hold different
-numbers of data items. In your algorithm you will need to compare the keys of
+numbers of data items. In your algorithm, you will need to compare the keys of
 the source arrays, picking the smallest one to copy to the destination. You’ll
 also need to handle the situation when one source array exhausts its contents
 before the other.
@@ -151,7 +152,7 @@ program. This method should remove all duplicates from the
 array. That is, if three items with the key 17 appear in the array, noDups()
 should remove two of them. Don’t worry about maintaining the order of the
 items. One approach is to first compare every item with all the other items and
-overwrite any duplicates with a null (or a distinctive value that isn’t used for
+overwrite any duplicates with a null (or a distinctive value that is not used for
 real keys). Then remove all the nulls. Of course, the array size will be reduced.
 
 **My implementation of noDups() method:**
@@ -180,10 +181,10 @@ applet, the in index always goes from left to right, finding the largest item an
 carrying it toward out on the right. Modify the bubbleSort() method so that it’s
 bidirectional. This means the in index will first carry the largest item from left
 to right as before, but when it reaches out, it will reverse and carry the smallest
-item from right to left. You’ll need two outer indexes, one on the right (the old
+item from right to left. You'll need two outer indexes, one on the right (the old
 out) and another on the left.
 
-**My modify of bubbleSort() method:**
+**My modifying of bubbleSort() method:**
 
 ```
 public void bubbleSort() {
@@ -255,7 +256,7 @@ order, you swap them. On the second pass you do the same for all the even
 values (j = 2, 4, 6, ...). You do these two passes repeatedly until the array is
 sorted. Replace the bubbleSort() method in bubbleSort.java with
 an oddEvenSort() method. Make sure it works for varying amounts of data.
-You’ll need to figure out how many times to do the two passes.  
+You'll need to figure out how many times to do the two passes.  
 The odd-even sort is actually useful in a multiprocessing environment, where a
 separate processor can operate on each odd pair simultaneously and then on
 each even pair. Because the odd pairs are independent of each other, each pair
@@ -289,5 +290,47 @@ public void oddEvenSort() {
         }
     }
     System.out.println("The two passes were made: " + count + " times");
+}
+```
+
+### 3.5. Modify insertionSort() method
+
+Modify the insertionSort() method in insertSort.java, so it counts
+the number of copies and the number of comparisons it makes during a sort
+and displays the totals.
+To count comparisons, you'll need to break up the
+double condition in the inner while loop.
+Use this program to measure the
+number of copies and comparisons for different amounts of inversely sorted
+data.
+Do the results verify O(N²) efficiency?
+Do the same for almost-sorted data
+(only a few items out of place).
+What can you deduce about the efficiency of
+this algorithm for almost-sorted data?
+
+**My implementation of insertionSort() method:**
+
+```
+public void insertionSort() {
+    int in, out, comp = 0, perm = 0;
+    for (out = 1; out < nElems; out++) // out is dividing line
+    {
+        long temp = a[out]; // remove marked item
+        in = out; // start shifts at out
+        while (a[in - 1] >= temp) // until one is smaller,
+        {
+            a[in] = a[in - 1]; // shift item to right
+            --in; // go left one position
+            comp++;
+            perm++;
+            if (in == 0) {
+                break;
+            }
+        }
+        a[in] = temp; // insert marked item
+        perm++;
+    }
+    System.out.println("Comparisons: " + comp + "\tPermutations: " + perm);
 }
 ```
