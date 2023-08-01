@@ -23,18 +23,25 @@ public class ArrayIns {
     }
 
     public void insertionSort() {
-        int in, out;
+        int in, out, comp = 0, perm = 0;
         for (out = 1; out < nElems; out++) // out is dividing line
         {
             long temp = a[out]; // remove marked item
             in = out; // start shifts at out
-            while (in > 0 && a[in - 1] >= temp) // until one is smaller,
+            while (a[in - 1] >= temp) // until one is smaller,
             {
                 a[in] = a[in - 1]; // shift item to right
                 --in; // go left one position
+                comp++;
+                perm++;
+                if (in == 0) {
+                    break;
+                }
             }
             a[in] = temp; // insert marked item
+            perm++;
         }
+        System.out.println("Comparisons: " + comp + "\tPermutations: " + perm);
     }
 
     public long median() {

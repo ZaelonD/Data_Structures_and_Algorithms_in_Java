@@ -2,7 +2,7 @@ package exercises.chapter_3_simple_sorting.insertion_sort;
 
 public class InsertSortApp {
     public static void main(String[] args) {
-        int maxSize = 25; // array size
+        int maxSize = 10; // array size
         ArrayIns arr; // reference to array
         arr = new ArrayIns(maxSize); // create the array
         for (int j = 0; j < maxSize; j++) {
