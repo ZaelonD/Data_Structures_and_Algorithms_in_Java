@@ -1,0 +1,54 @@
+package exercises.chapter_4_stacks_and_queues.queue;
+
+public class Queue {
+    private final int maxSize;
+    private final long[] queArray;
+    private int front;
+    private int rear;
+    private int nItems;
+
+    public Queue(int s) {
+        maxSize = s;
+        front = 0;
+        rear = -1;
+        nItems = 0;
+        queArray = new long[maxSize];
+    }
+
+    public void insert(long value) {
+        if (!isFull()) {
+            if (rear == maxSize - 1)
+                rear = -1;
+            queArray[++rear] = value;
+            nItems++;
+        } else
+            System.out.println("Queue is full");
+    }
+
+    public long remove() {
+        if (!isEmpty()) {
+            long temp = queArray[front++];
+            if (front == maxSize)
+                front = 0;
+            nItems--;
+            return temp;
+        } else
+            return -1;
+    }
+
+    public long peekFront() {
+        return queArray[front];
+    }
+
+    public boolean isEmpty() {
+        return nItems == 0;
+    }
+
+    public boolean isFull() {
+        return nItems == maxSize;
+    }
+
+    public int getSize() {
+        return nItems;
+    }
+}
