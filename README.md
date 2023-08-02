@@ -15,7 +15,8 @@
    3.2. [Add median() method](#32-add-median-method)  
    3.3. [Add noDups() method](#33-add-nodups-method)  
    3.4. [Add oddEvenSort() method](#34-add-oddevensort-method)  
-   3.5. [Modify insertionSort() method](#35-modify-insertionsort-method)
+   3.5. [Modify insertionSort() method with counting](#35-modify-insertionsort-method-with-counting)  
+   3.6. [Modify insertionSort() method with remove duplicates](#36-modify-insertionsort-method-with-remove-duplicates)
 
 ## Chapter I. Overview
 
@@ -293,7 +294,7 @@ public void oddEvenSort() {
 }
 ```
 
-### 3.5. Modify insertionSort() method
+### 3.5. Modify insertionSort() method with counting
 
 Modify the insertionSort() method in insertSort.java, so it counts
 the number of copies and the number of comparisons it makes during a sort
@@ -331,6 +332,63 @@ public void insertionSort() {
         a[in] = temp; // insert marked item
         perm++;
     }
+    System.out.println("Comparisons: " + comp + "\tPermutations: " + perm);
+}
+```
+
+### 3.6. Modify insertionSort() method with remove duplicates
+
+Here’s an interesting way to remove duplicates from an array.
+The insertion sort
+uses a loop-within-a-loop algorithm that compares every item in the array with
+every other item.
+If you want to remove duplicates, this is one way to start.
+Modify the insertionSort() method in the
+insertSort.java program so that it removes duplicates as it sorts.
+Here’s one
+approach: When a duplicate is found, write over one of the duplicated items
+with a key value less than any normally used (such as –1, if all the normal keys
+are positive).
+Then the normal insertion sort algorithm, treating this new key
+like any other item, will put it at index 0.
+From now on, the algorithm can
+ignore this item.
+The next duplicate will go at index 1, and so on.
+When the
+sort is finished, all the removed dups (now represented by –1 values) will be
+found at the beginning of the array.
+The array can then be resized and shifted
+down, so it starts at 0.
+
+**My implementation of insertionSort() method:**
+
+```
+public void insertionSort() {
+    int in, out, comp = 0, perm = 0;
+    for (out = 1; out < nElems; out++) // out is dividing line
+    {
+        long temp = a[out]; // remove marked item
+        in = out; // start shifts at out
+        while (a[in - 1] >= temp) // until one is smaller,
+        {
+            if (a[in - 1] == temp)
+                temp = -1;
+
+        a[in] = a[in - 1]; // shift item to right
+        --in; // go left one position
+        comp++;
+        perm++;
+        if (in == 0)
+            break;
+        }
+        a[in] = temp; // insert marked item
+        perm++;
+    }
+    for (int i = 0; i < nElems; i++)
+        if (a[0] == -1)
+            delete(-1);
+        else
+            break;
     System.out.println("Comparisons: " + comp + "\tPermutations: " + perm);
 }
 ```

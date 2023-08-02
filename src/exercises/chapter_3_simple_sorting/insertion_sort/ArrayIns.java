@@ -62,7 +62,6 @@ public class ArrayIns {
                 delete(-1);
             else
                 break;
-
         System.out.println("Comparisons: " + comp + "\tPermutations: " + perm);
     }
 
