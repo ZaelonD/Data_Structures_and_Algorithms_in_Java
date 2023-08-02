@@ -16,6 +16,20 @@ public class ArrayIns {
         nElems++; // increment size
     }
 
+    public void delete(long value) {
+        int j;
+        for (j = 0; j < nElems; j++) // look for it
+            if (value == a[j])
+                break;
+        if (j == nElems) {
+            System.out.println("Element not found");
+        } else {
+            for (int k = j; k < nElems - 1; k++) // move higher ones down
+                a[k] = a[k + 1];
+            nElems--; // decrement size
+        }
+    }
+
     // displays array contents
     public void display() {
         for (int j = 0; j < nElems; j++) // for each element,
@@ -30,17 +44,25 @@ public class ArrayIns {
             in = out; // start shifts at out
             while (a[in - 1] >= temp) // until one is smaller,
             {
+                if (a[in - 1] == temp)
+                    temp = -1;
+
                 a[in] = a[in - 1]; // shift item to right
                 --in; // go left one position
                 comp++;
                 perm++;
-                if (in == 0) {
+                if (in == 0)
                     break;
-                }
             }
             a[in] = temp; // insert marked item
             perm++;
         }
+        for (int i = 0; i < nElems; i++)
+            if (a[0] == -1)
+                delete(-1);
+            else
+                break;
+
         System.out.println("Comparisons: " + comp + "\tPermutations: " + perm);
     }
 
