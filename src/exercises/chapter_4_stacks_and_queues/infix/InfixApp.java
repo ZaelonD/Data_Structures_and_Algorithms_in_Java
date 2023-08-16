@@ -20,7 +20,6 @@ public class InfixApp {
         } // end while
     } // end main()
 
-    //--------------------------------------------------------------
     public static String getString() throws IOException {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
