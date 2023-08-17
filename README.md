@@ -17,7 +17,8 @@
    3.4. [Add oddEvenSort() method](#34-add-oddevensort-method)  
    3.5. [Modify insertionSort() method with counting](#35-modify-insertionsort-method-with-counting)  
    3.6. [Modify insertionSort() method with remove duplicates](#36-modify-insertionsort-method-with-remove-duplicates)
-
+4. [Chapter IV. Stacks and Queues](#chapter-iv-stacks-and-queues)  
+   4.1. [Write a method display()](#41-write-a-method-display)
 ## Chapter I. Overview
 
 ### Solving programming projects from the book Data Structures & Algorithms in Java
@@ -390,5 +391,35 @@ public void insertionSort() {
         else
             break;
     System.out.println("Comparisons: " + comp + "\tPermutations: " + perm);
+}
+```
+
+## Chapter IV. Stacks and Queues
+
+### 4.1. Write a method display()
+
+Write a method for the Queue class in the queue.java program that
+displays the contents of the queue.
+Note that this does not mean simply
+displaying the contents of the underlying array.
+You should show the queue
+contents from the first item inserted to the last, without indicating to the
+viewer whether the sequence is broken by wrapping around the end of the
+array.
+Be careful that one item and no items display properly, no matter where
+the front and rear are.
+
+**My implementation of display() method:**
+
+```
+public void display() {
+    if (!isEmpty()) {
+        while (!isEmpty()) {
+            long n = remove();
+            System.out.print(n + "\t");
+        }
+    } else {
+        System.err.println("Queue is empty");
+    }
 }
 ```
