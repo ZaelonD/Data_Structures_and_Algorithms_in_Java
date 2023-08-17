@@ -22,7 +22,7 @@ public class Queue {
             queArray[++rear] = value;
             nItems++;
         } else
-            System.out.println("Queue is full");
+            System.err.println("Can't insert the value " + value + "\nQueue is full");
     }
 
     public long remove() {
@@ -32,8 +32,10 @@ public class Queue {
                 front = 0;
             nItems--;
             return temp;
-        } else
-            return -1;
+        } else {
+            System.err.println("Can't remove the value \nQueue is empty");
+        }
+        return -1;
     }
 
     public long peekFront() {
@@ -50,5 +52,16 @@ public class Queue {
 
     public int getSize() {
         return nItems;
+    }
+
+    public void display() {
+        if (!isEmpty()) {
+            while (!isEmpty()) {
+                long n = remove();
+                System.out.print(n + "\t");
+            }
+        } else {
+            System.err.println("Queue is empty");
+        }
     }
 }
