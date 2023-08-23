@@ -51,6 +51,17 @@ public class PriorityQ {
         return min;
     }
 
+    public void display() {
+        if (!isEmpty()) {
+            while (!isEmpty()) {
+                long n = remove();
+                System.out.print(n + "\t");
+            }
+        } else {
+            System.err.println("Queue is empty");
+        }
+    }
+
     // true if the queue is empty
     public boolean isEmpty() {
         return (nItems == 0);
