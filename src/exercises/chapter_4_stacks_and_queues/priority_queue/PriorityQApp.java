@@ -11,10 +11,5 @@ public class PriorityQApp {
         thePQ.insert(40);
         thePQ.insert(20);
         thePQ.display();
-//        while (!thePQ.isEmpty()) {
-//            long item = thePQ.remove();
-//            System.out.print(item + " "); // 10, 20, 30, 40, 50
-//        }
-//        System.out.println();
     }
 }
