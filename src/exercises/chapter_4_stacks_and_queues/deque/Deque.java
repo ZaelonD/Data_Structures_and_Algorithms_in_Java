@@ -44,7 +44,13 @@ public class Deque {
     }
 
     public void removeRight() {
-
+        if (!isEmpty()) {
+            rear--;
+            if (rear == maxSize)
+                rear = -1;
+            nElems--;
+        } else
+            System.err.println("Can't remove the value.\nQueue is empty");
     }
 
     public long peekFront() {

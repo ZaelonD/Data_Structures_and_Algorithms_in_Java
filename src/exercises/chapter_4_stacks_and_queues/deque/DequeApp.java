@@ -5,11 +5,14 @@ public class DequeApp {
         Deque deque = new Deque(5);
         deque.insertRight(1);
         deque.insertRight(2);
-        deque.insertRight(3);
-        deque.insertRight(4);
+        deque.insertLeft(3);
+        deque.insertLeft(4);
         deque.insertRight(5);
         deque.removeLeft();
         deque.insertRight(6);
+//        deque.removeRight();
+//        deque.insertRight(6);
+
 //        deque.insertLeft(2);
 //        deque.insertLeft(3);
 //        deque.insertLeft(1);
