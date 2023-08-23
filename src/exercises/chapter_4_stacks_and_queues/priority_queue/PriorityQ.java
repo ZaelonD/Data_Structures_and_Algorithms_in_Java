@@ -15,32 +15,40 @@ public class PriorityQ {
 
     // insert item
     public void insert(long item) {
-        int j;
-        // if no items,
-        if (isEmpty())
-            queArray[nItems++] = item; // insert at 0
-            // if items,
-        else {
-            // start at end,
-            for (j = nItems - 1; j >= 0; j--) {
-                if (item > queArray[j]) // if new item larger,
-                    queArray[j + 1] = queArray[j]; // shift upward
-                else // if smaller,
-                    break; // done shifting
-            } // end for
-            queArray[j + 1] = item; // insert it
-            nItems++;
-        }
+        if (!isFull())
+            queArray[nItems++] = item;
+        else
+            System.err.println("Can't insert the value " + item + "\nDeque is full");
     }
 
     // remove minimum item
     public long remove() {
-        return queArray[--nItems];
+        long minVal = peekMin();
+        if (!isEmpty()) {
+            int i;
+            for (i = 0; i < nItems; i++) {
+                if (minVal == queArray[i])
+                    break;
+            }
+            for (int j = i; j < nItems - 1; j++) {
+                queArray[j] = queArray[j + 1];
+            }
+            nItems--;
+        }
+        return minVal;
     }
 
     // peek at minimum item
     public long peekMin() {
-        return queArray[nItems - 1];
+        long min = queArray[0];
+        if (!isEmpty()) {
+            for (int i = 1; i < nItems; i++) {
+                if (queArray[i] < min)
+                    min = queArray[i];
+            }
+        } else
+            System.err.println("Can't peek.\nDeque is full");
+        return min;
     }
 
     // true if the queue is empty
