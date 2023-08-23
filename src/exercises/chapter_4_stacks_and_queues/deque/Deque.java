@@ -30,15 +30,15 @@ public class Deque {
                 front = 0;
             nElems--;
         } else
-            System.err.println("Can't remove the value \nQueue is empty");
+            System.err.println("Can't remove the value.\nQueue is empty");
     }
 
     public void insertRight(long value) {
-        if (isEmpty()) {
-            dequeArray[rear++] = value;
-            front++;
-        } else if (isFull()) {
+        if (!isFull()) {
+            if (rear == maxSize - 1)
+                rear = -1;
             dequeArray[++rear] = value;
+            nElems++;
         } else
             System.err.println("Can't insert the value " + value + "\nDeque is full");
     }
@@ -48,6 +48,9 @@ public class Deque {
     }
 
     public long peekFront() {
+        if (isEmpty()) {
+            System.err.println("Can't peek.\nDeque is empty");
+        }
         return dequeArray[front];
     }
 
