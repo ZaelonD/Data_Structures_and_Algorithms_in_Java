@@ -60,6 +60,13 @@ public class Deque {
         return dequeArray[front];
     }
 
+    public long peekRear() {
+        if (isEmpty()) {
+            System.err.println("Can't peek.\nDeque is empty");
+        }
+        return dequeArray[rear];
+    }
+
     public boolean isEmpty() {
         return nElems == 0;
     }
