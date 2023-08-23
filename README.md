@@ -19,7 +19,8 @@
    3.6. [Modify insertionSort() method with remove duplicates](#36-modify-insertionsort-method-with-remove-duplicates)
 4. [Chapter IV. Stacks and Queues](#chapter-iv-stacks-and-queues)  
    4.1. [Write a method display()](#41-write-a-method-display)  
-   4.2. [Create a Deque class](#42-create-a-deque-class)
+   4.2. [Create a Deque class](#42-create-a-deque-class)  
+   4.3. [Write a stack based on the Deque](#43-write-a-stack-based-on-the-deque)
 
 ## Chapter I. Overview
 
@@ -515,6 +516,46 @@ public class Deque {
             rear++;
         }
         nElems++;
+    }
+}
+```
+
+### 4.3. Write a stack based on the Deque
+
+Write a program that implements a stack class that is based on the Deque class
+in Programming Project 4.2. This stack class should have the same methods
+and capabilities as the StackX class in the stack.java program
+
+**My implementation of Stack:**
+
+```
+import exercises.chapter_4_stacks_and_queues.deque.Deque;
+
+public class StackOnDeque {
+    private final Deque deque;
+
+    public StackOnDeque(int maxSize) {
+        this.deque = new Deque(maxSize);
+    }
+
+    public void push(long value) {
+        deque.insertRight(value);
+    }
+
+    public void pop() {
+        deque.removeRight();
+    }
+
+    public long peek() {
+        return deque.peekRear();
+    }
+
+    public boolean isEmpty() {
+        return deque.isEmpty();
+    }
+
+    public boolean isFull() {
+        return deque.isFull();
     }
 }
 ```
