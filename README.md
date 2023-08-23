@@ -524,7 +524,7 @@ public class Deque {
 
 Write a program that implements a stack class that is based on the Deque class
 in Programming Project 4.2. This stack class should have the same methods
-and capabilities as the StackX class in the stack.java program
+and capabilities as the StackX class in the stack.java program.
 
 **My implementation of Stack:**
 
