@@ -7,12 +7,15 @@ public class DequeApp {
         deque.insertLeft(3);
         deque.insertLeft(1);
         deque.insertLeft(0);
-        deque.insertLeft(0);
+        deque.removeLeft();
+        deque.insertLeft(5);
+        deque.insertLeft(6);
+        deque.removeLeft();
+        deque.insertLeft(4);
 
         while (!deque.isEmpty()) {
+            System.out.print(deque.peekFront() + "\t");
             deque.removeLeft();
         }
-//        deque.insertRight(3);
-//        deque.insertRight(4);
     }
 }
