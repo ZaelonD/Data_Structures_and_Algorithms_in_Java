@@ -16,12 +16,16 @@ public class QueueInShopWithRandom implements QueueInShopLogic {
      * Если обе очереди заполнены, пункт 1 не даст вставить покупателя в очереди,
      * пока хотя бы один покупатель не освободит очередь
      * */
-    private final Queue[] queues;
-    private final int numOfQueues;
+    private Queue[] queues;
+    private int numOfQueues;
     private final Scanner scanner;
 
     public QueueInShopWithRandom() {
         scanner = new Scanner(System.in);
+        init();
+    }
+
+    private void init() {
         System.out.print("Введите количество очередей: ");
         numOfQueues = scanner.nextInt();
         queues = new Queue[numOfQueues];
@@ -44,13 +48,16 @@ public class QueueInShopWithRandom implements QueueInShopLogic {
                 switch (input = scanner.nextInt()) {
                     case 1:
                         insertInQueue();
+                        break;
                     case 2:
                         insertInQueue();
+                        break;
                     case 3:
                         System.out.println("Exit");
                         break;
                     default:
                         displayQueues();
+                        break;
                 }
             } catch (InputMismatchException err) {
                 System.err.println("Type a number, not a text. Insert valid data!");
