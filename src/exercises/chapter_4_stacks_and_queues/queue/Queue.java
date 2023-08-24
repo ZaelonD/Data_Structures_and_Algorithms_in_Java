@@ -65,8 +65,10 @@ public class Queue {
             } else
                 for (i = front; i <= rear; i++)
                     System.out.print(queArray[i] + "\t");
+            for (; i < maxSize; i++)
+                System.out.print('░' + "\t");
         } else
             for (int i = 0; i < maxSize; i++)
-                System.out.print('░');
+                System.out.print('░' + "\t");
     }
 }
