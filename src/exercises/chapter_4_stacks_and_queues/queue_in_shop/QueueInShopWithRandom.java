@@ -42,6 +42,7 @@ public class QueueInShopWithRandom implements QueueInShopLogic {
     @Override
     public void start() {
         int input = 0;
+        int clickCounter = 0;
         while (input != 3) {
             System.out.println("1. Add a customer to a random queue with a random number of items\n2. Wait");
             try {
@@ -51,6 +52,12 @@ public class QueueInShopWithRandom implements QueueInShopLogic {
                         displayQueues();
                         break;
                     case 2:
+                        clickCounter++;
+                        for (Queue queue : queues) {
+                            if (clickCounter == queue.peekFront()) {
+                                queue.remove();
+                            }
+                        }
                         displayQueues();
                         break;
                     case 3:
