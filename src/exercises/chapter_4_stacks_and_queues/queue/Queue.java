@@ -56,7 +56,7 @@ public class Queue {
 
     public void display() {
         if (!isEmpty()) {
-            int i = 0;
+            int i;
             if (rear < front) {
                 for (i = front; i != maxSize; i++)
                     System.out.print(queArray[i] + "\t");
@@ -66,6 +66,7 @@ public class Queue {
                 for (i = front; i <= rear; i++)
                     System.out.print(queArray[i] + "\t");
         } else
-            System.out.println("Queue is empty");
+            for (int i = 0; i < maxSize; i++)
+                System.out.print('░');
     }
 }
