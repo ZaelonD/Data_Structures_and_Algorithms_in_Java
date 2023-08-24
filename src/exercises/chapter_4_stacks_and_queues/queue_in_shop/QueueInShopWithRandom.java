@@ -48,15 +48,13 @@ public class QueueInShopWithRandom implements QueueInShopLogic {
                 switch (input = scanner.nextInt()) {
                     case 1:
                         insertInQueue();
+                        displayQueues();
                         break;
                     case 2:
-                        insertInQueue();
+                        displayQueues();
                         break;
                     case 3:
                         System.out.println("Exit");
-                        break;
-                    default:
-                        displayQueues();
                         break;
                 }
             } catch (InputMismatchException err) {
@@ -68,11 +66,14 @@ public class QueueInShopWithRandom implements QueueInShopLogic {
     }
 
     private void displayQueues() {
-        for (Queue queue : queues)
+        for (Queue queue : queues) {
+            System.out.print('█' + " <- ");
             queue.display();
+            System.out.println("\n");
+        }
     }
 
     private void insertInQueue() {
-        queues[(int) (Math.random() * numOfQueues)].insert((long) (Math.random() * 10));
+        queues[(int) (Math.random() * numOfQueues)].insert((long) (1 + Math.random() * 10));
     }
 }
