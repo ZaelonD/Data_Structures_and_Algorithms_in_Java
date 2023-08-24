@@ -417,13 +417,20 @@ the front and rear are.
 ```
 public void display() {
     if (!isEmpty()) {
-        while (!isEmpty()) {
-            long n = remove();
-            System.out.print(n + "\t");
-        }
-    } else {
-        System.err.println("Queue is empty");
-    }
+        int i;
+        if (rear < front) {
+            for (i = front; i != maxSize; i++)
+                System.out.print(queArray[i] + "\t");
+            for (i = 0; i < rear; i++)
+                System.out.print(queArray[i] + "\t");
+        } else
+            for (i = front; i <= rear; i++)
+                System.out.print(queArray[i] + "\t");
+        for (; i < maxSize; i++)
+            System.out.print('░' + "\t");
+    } else
+        for (int i = 0; i < maxSize; i++)
+            System.out.print('░' + "\t");
 }
 ```
 
