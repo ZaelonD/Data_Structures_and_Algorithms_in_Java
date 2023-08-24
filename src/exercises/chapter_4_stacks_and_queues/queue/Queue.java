@@ -33,7 +33,7 @@ public class Queue {
             nItems--;
             return temp;
         } else {
-            System.err.println("Can't remove the value \nQueue is empty");
+            System.err.println("Can't remove the value\nQueue is empty");
         }
         return -1;
     }
@@ -56,12 +56,16 @@ public class Queue {
 
     public void display() {
         if (!isEmpty()) {
-            while (!isEmpty()) {
-                long n = remove();
-                System.out.print(n + "\t");
-            }
-        } else {
-            System.err.println("Queue is empty");
-        }
+            int i = 0;
+            if (rear < front) {
+                for (i = front; i != maxSize; i++)
+                    System.out.print(queArray[i] + "\t");
+                for (i = 0; i < rear; i++)
+                    System.out.print(queArray[i] + "\t");
+            } else
+                for (i = front; i <= rear; i++)
+                    System.out.print(queArray[i] + "\t");
+        } else
+            System.out.println("Queue is empty");
     }
 }
