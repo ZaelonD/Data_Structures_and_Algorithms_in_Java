@@ -44,12 +44,13 @@ public class QueueInShopWithRandom implements QueueInShopLogic {
         int input = 0;
         int clickCounter = 0;
         while (input != 3) {
-            System.out.println("1. Add a customer to a random queue with a random number of items\n2. Wait");
+            System.out.println("1. Add a customer\n2. Wait\n3. Exit\n");
+            displayQueues();
             try {
                 switch (input = scanner.nextInt()) {
                     case 1:
                         insertInQueue();
-                        displayQueues();
+//                        displayQueues();
                         break;
                     case 2:
                         clickCounter++;
