@@ -1,6 +1,5 @@
 package exercises.chapter_5_linked_lists.stack_on_link_list_implementation;
 
-
 public class LinkList {
     private Link first;
 
