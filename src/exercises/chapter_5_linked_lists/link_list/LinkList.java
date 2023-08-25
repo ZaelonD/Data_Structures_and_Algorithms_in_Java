@@ -15,6 +15,18 @@ public class LinkList {
         return temp;
     }
 
+    public Link find(int key) {
+        Link current = first;
+        if (!isEmpty())
+            while (current.iData != key) {
+                if (current.next == null)
+                    return null;
+                else
+                    current = current.next;
+            }
+        return current;
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
