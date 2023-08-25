@@ -50,15 +50,14 @@ public class QueueInShopWithRandom implements QueueInShopLogic {
                 switch (input = scanner.nextInt()) {
                     case 1:
                         insertInQueue();
-//                        displayQueues();
                         break;
                     case 2:
-                        clickCounter++;
-                        for (Queue queue : queues) {
-                            if (clickCounter == queue.peekFront()) {
-                                queue.remove();
-                            }
-                        }
+//                        clickCounter++;
+//                        for (Queue queue : queues) {
+//                            if (clickCounter == queue.peekFront()) {
+//                                queue.remove();
+//                            }
+//                        }
                         displayQueues();
                         break;
                     case 3:
