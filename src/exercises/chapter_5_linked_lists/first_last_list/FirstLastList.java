@@ -13,6 +13,17 @@ public class FirstLastList {
         first = newLink;
     }
 
+    public void insertLast(long dData) {
+        Link newLink = new Link(dData);
+        if (isEmpty()) {
+            first = newLink;
+        } else {
+            last.next = newLink;
+            last = newLink;
+        }
+
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
