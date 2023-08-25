@@ -27,6 +27,16 @@ public class LinkList {
         return current;
     }
 
+    public void displayList() {
+        Link current = first;
+        System.out.print("List (first-->last): ");
+        while (current != null) {
+            current.displayLink();
+            current = current.next;
+        }
+        System.out.println();
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
