@@ -10,10 +10,10 @@ public class LinkList {
         first = newLink;
     }
 
-    public Link deleteFirst() {
+    public long deleteFirst() {
         Link temp = first;
         first = first.next;
-        return temp;
+        return temp.dData;
     }
 
     public void displayList() {
