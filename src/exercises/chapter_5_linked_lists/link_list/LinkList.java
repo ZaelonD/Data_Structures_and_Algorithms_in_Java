@@ -9,7 +9,6 @@ public class LinkList {
         first = newLink;
     }
 
-
     public Link deleteFirst() {
         Link temp = first;
         first = first.next;
