@@ -9,6 +9,13 @@ public class LinkList {
         first = newLink;
     }
 
+
+    public Link deleteFirst() {
+        Link temp = first;
+        first = first.next;
+        return temp;
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
