@@ -24,6 +24,16 @@ public class FirstLastList {
 
     }
 
+    public long deleteFirst() {
+        long temp = first.dData;
+        if (!isEmpty()) {
+            if (first.next == null)
+                last = null;
+            first = first.next;
+        }
+        return temp;
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
