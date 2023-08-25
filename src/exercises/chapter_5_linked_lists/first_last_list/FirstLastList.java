@@ -34,6 +34,16 @@ public class FirstLastList {
         return temp;
     }
 
+    public void displayList() {
+        System.out.print("List (first-->last): ");
+        Link current = first;
+        while (current != null) {
+            current.displayLink();
+            current = current.next;
+        }
+        System.out.println();
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
