@@ -24,6 +24,12 @@ public class SortedList {
         }
     }
 
+    public Link remove() {
+        Link temp = first;
+        first = first.next;
+        return temp;
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
