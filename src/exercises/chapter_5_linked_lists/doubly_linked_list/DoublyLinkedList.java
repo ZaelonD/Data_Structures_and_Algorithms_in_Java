@@ -50,7 +50,7 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    public Link removeFirst() {
+    public Link deleteFirst() {
         Link temp = first;
         if (!isEmpty()) {
             if (first.next == null) {
