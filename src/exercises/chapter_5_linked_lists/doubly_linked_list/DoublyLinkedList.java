@@ -24,6 +24,16 @@ public class DoublyLinkedList {
             first = last = new Link(data);
     }
 
+    public void displayForward() {
+        System.out.print("List (first-->last): ");
+        Link current = first;
+        while (current != null) {
+            current.displayLink();
+            current = current.next;
+        }
+        System.out.println();
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
