@@ -95,19 +95,23 @@ public class DoublyLinkedList {
     }
 
     public Link deleteKey(long key) {
-        if (!isEmpty()) {
-            Link desiredLink = find(key);
-            if (desiredLink != null) {
-                if (desiredLink == first && desiredLink == last) {
-                    first = last = null;
-                } else if (desiredLink == first) {
-                    desiredLink.next.previous = null;
-                    first = desiredLink.next;
-                }
+        Link desiredLink = find(key);
+        if (!isEmpty() && desiredLink != null) {
+            if (desiredLink == first && desiredLink == last) {
+                first = last = null;
+            } else if (desiredLink == first) {
+                desiredLink.next.previous = null;
+                first = desiredLink.next;
+            } else if (desiredLink == last) {
+                desiredLink.previous.next = null;
+                last = desiredLink.previous;
+            } else {
+                desiredLink.previous.next = desiredLink.next;
+                desiredLink.next.previous = desiredLink.previous;
             }
         } else
             System.out.println("Can't remove\nList is empty!");
-        return new Link(key);
+        return desiredLink;
     }
 
     public boolean isEmpty() {
