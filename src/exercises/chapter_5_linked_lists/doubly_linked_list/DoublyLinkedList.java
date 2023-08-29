@@ -34,6 +34,16 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
+    public void displayBackward() {
+        System.out.print("List (last-->first): ");
+        Link current = last;
+        while (current != null) {
+            current.displayLink();
+            current = current.previous;
+        }
+        System.out.println();
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
