@@ -25,23 +25,44 @@ public class DoublyLinkedList {
     }
 
     public void displayForward() {
-        System.out.print("List (first-->last): ");
-        Link current = first;
-        while (current != null) {
-            current.displayLink();
-            current = current.next;
-        }
+        if (!isEmpty()) {
+            System.out.print("List (first-->last): ");
+            Link current = first;
+            while (current != null) {
+                current.displayLink();
+                current = current.next;
+            }
+        } else
+            System.err.println("No items to display\nList is empty!");
         System.out.println();
     }
 
     public void displayBackward() {
-        System.out.print("List (last-->first): ");
-        Link current = last;
-        while (current != null) {
-            current.displayLink();
-            current = current.previous;
-        }
+        if (!isEmpty()) {
+            System.out.print("List (last-->first): ");
+            Link current = last;
+            while (current != null) {
+                current.displayLink();
+                current = current.previous;
+            }
+        } else
+            System.out.println("No items to display\nList is empty!");
         System.out.println();
+    }
+
+    public Link removeFirst() {
+        Link temp = first;
+        if (!isEmpty()) {
+            if (first.next == null) {
+                first = null;
+                last = null;
+            } else {
+                first.next.previous = null;
+                first = first.next;
+            }
+        } else
+            System.err.println("Can't remove\nList is empty!");
+        return temp;
     }
 
     public boolean isEmpty() {
