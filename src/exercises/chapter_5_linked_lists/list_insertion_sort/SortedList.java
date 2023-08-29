@@ -31,7 +31,16 @@ public class SortedList {
         } else {
             first = k;
         }
+    }
 
+    public Link remove() {
+        Link temp = first;
+        if (!isEmpty()) {
+            first = first.next;
+        } else {
+            System.err.println("Can't remove\nList is empty!");
+        }
+        return temp;
     }
 
     public boolean isEmpty() {
