@@ -45,21 +45,29 @@ public class DoublyLinkedList {
 
     public Link deleteFirst() {
         Link temp = first;
-        if (!isEmpty()) {
-            if (first.next == null) {
-                first = null;
-                last = null;
-            } else {
-                first.next.previous = null;
-                first = first.next;
+        if (!isEmpty())
+            if (temp.next == null)
+                first = last = null;
+            else {
+                temp.next.previous = null;
+                first = temp.next;
             }
-        } else
+        else
             System.err.println("Can't remove\nList is empty!");
         return temp;
     }
 
     public Link deleteLast() {
-        return null;
+        Link temp = last;
+        if (!isEmpty()) {
+            if (temp.previous == null) {
+                first = last = null;
+            } else {
+                temp.previous.next = null;
+                last = temp.previous;
+            }
+        }
+        return temp;
     }
 
     public Link deleteKey(long key) {
