@@ -65,6 +65,28 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    public boolean insertAfter(long key, long data) {
+        if (!isEmpty()) {
+            Link current = first;
+            while (current.data != key) {
+                current = current.next;
+                if (current == null) {
+                    return false;
+                }
+            }
+            Link newLink = new Link(data);
+            if (current == last)
+                last = newLink;
+            else {
+                current.next.previous = newLink;
+                newLink.next = current.next;
+            }
+            current.next = newLink;
+            newLink.previous = current;
+        }
+        return true;
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
