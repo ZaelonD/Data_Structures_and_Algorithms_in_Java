@@ -10,9 +10,18 @@ public class DoublyLinkedList {
             first.previous = newLink;
             newLink.next = first;
             first = newLink;
-        } else {
-            first = new Link(data);
-        }
+        } else
+            first = last = new Link(data);
+    }
+
+    public void insertLast(long data) {
+        if (!isEmpty()) {
+            Link newLink = new Link(data);
+            last.next = newLink;
+            newLink.previous = last;
+            last = newLink;
+        } else
+            first = last = new Link(data);
     }
 
     public boolean isEmpty() {
