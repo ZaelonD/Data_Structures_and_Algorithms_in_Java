@@ -67,24 +67,47 @@ public class DoublyLinkedList {
 
     public boolean insertAfter(long key, long data) {
         if (!isEmpty()) {
-            Link current = first;
-            while (current.data != key) {
-                current = current.next;
-                if (current == null) {
-                    return false;
-                }
+            Link desiredLink = find(key);
+            if (desiredLink == null) {
+                return false;
             }
             Link newLink = new Link(data);
-            if (current == last)
+            if (desiredLink == last)
                 last = newLink;
             else {
-                current.next.previous = newLink;
-                newLink.next = current.next;
+                desiredLink.next.previous = newLink;
+                newLink.next = desiredLink.next;
             }
-            current.next = newLink;
-            newLink.previous = current;
+            desiredLink.next = newLink;
+            newLink.previous = desiredLink;
         }
         return true;
+    }
+
+    public Link find(long key) {
+        Link current = first;
+        while (current != null && current.data != key) {
+            current = current.next;
+        }
+        if (current == null)
+            System.err.println("Can't find item in list");
+        return current;
+    }
+
+    public Link deleteKey(long key) {
+        if (!isEmpty()) {
+            Link desiredLink = find(key);
+            if (desiredLink != null) {
+                if (desiredLink == first && desiredLink == last) {
+                    first = last = null;
+                } else if (desiredLink == first) {
+                    desiredLink.next.previous = null;
+                    first = desiredLink.next;
+                }
+            }
+        } else
+            System.out.println("Can't remove\nList is empty!");
+        return new Link(key);
     }
 
     public boolean isEmpty() {
