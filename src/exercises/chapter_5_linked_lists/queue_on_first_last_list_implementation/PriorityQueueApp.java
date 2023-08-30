@@ -1,4 +1,4 @@
-package exercises.chapter_5_linked_lists.sorted_list;
+package exercises.chapter_5_linked_lists.queue_on_first_last_list_implementation;
 
 import exercises.chapter_5_linked_lists.priority_queue_on_sorted_list_implementation.PriorityQueue;
 
