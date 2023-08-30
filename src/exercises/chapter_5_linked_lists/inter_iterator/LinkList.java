@@ -13,6 +13,10 @@ public class LinkList {
         this.first = first;
     }
 
+    public ListIterator getIterator() {
+        return new ListIterator(this);
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
