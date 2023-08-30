@@ -40,6 +40,10 @@ public class SortedList {
         System.out.println();
     }
 
+    public long peek() {
+        return first.dData;
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
