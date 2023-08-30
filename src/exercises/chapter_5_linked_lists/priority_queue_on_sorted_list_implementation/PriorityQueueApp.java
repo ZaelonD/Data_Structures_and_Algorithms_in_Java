@@ -1,6 +1,4 @@
-package exercises.chapter_5_linked_lists.queue_on_first_last_list_implementation;
-
-import exercises.chapter_5_linked_lists.priority_queue_on_sorted_list_implementation.PriorityQueue;
+package exercises.chapter_5_linked_lists.priority_queue_on_sorted_list_implementation;
 
 public class PriorityQueueApp {
     public static void main(String[] args) {
