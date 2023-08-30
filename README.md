@@ -662,6 +662,8 @@ public class PriorityQ {
 Implement a priority queue based on a sorted linked list.
 The remove operationon the priority queue should remove the item with the smallest key.
 
+**My implementation of PriorityQ based on a sorted linked list:**
+
 ```
 import exercises.chapter_5_linked_lists.first_last_list.Link;
 import exercises.chapter_5_linked_lists.sorted_list.SortedList;
@@ -683,6 +685,54 @@ public class PriorityQueue {
 
     public long peek() {
         return list.peek();
+    }
+
+    public boolean isEmpty() {
+        return list.isEmpty();
+    }
+}
+```
+
+### 5.2. Deque on doubly linked list inplementation
+
+Implement a deque based on a doubly linked list. The user should be able to carry
+out the normaloperations on the deque
+
+**My implementation of Deque based on a doubly linked list:**
+
+```
+import exercises.chapter_5_linked_lists.doubly_linked_list.DoublyLinkedList;
+import exercises.chapter_5_linked_lists.doubly_linked_list.Link;
+
+public class Deque {
+    private final DoublyLinkedList list;
+
+    public Deque() {
+        this.list = new DoublyLinkedList();
+    }
+
+    public void insertLeft(long data) {
+        list.insertFirst(data);
+    }
+
+    public void insertRight(long data) {
+        list.insertLast(data);
+    }
+
+    public Link removeLeft() {
+        return list.deleteFirst();
+    }
+
+    public Link removeRight() {
+        return list.deleteLast();
+    }
+
+    public long peekFront() {
+        return list.peekFirst();
+    }
+
+    public long peekRear() {
+        return list.peekLast();
     }
 
     public boolean isEmpty() {
