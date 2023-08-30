@@ -41,8 +41,8 @@ public class ListIterator {
         Link newLink = new Link(data);
         if (!list.isEmpty()) {
             if (previous != null) {
-                previous.next = newLink;
                 newLink.next = previous.next;
+                previous.next = newLink;
                 current = newLink;
             } else {
                 newLink.next = list.getFirst();
