@@ -48,8 +48,29 @@ public class ListIterator {
                 newLink.next = list.getFirst();
                 list.setFirst(newLink);
                 reset();
-
             }
         }
+    }
+
+    public long deleteCurrent() {
+        long temp = current.dData;
+        if (!list.isEmpty()) {
+            if (previous != null) {
+                previous.next = current.next;
+                if (atEnd())
+                    reset();
+                else
+                    current = current.next;
+            } else {
+                list.setFirst(current.next);
+                reset();
+            }
+        } else
+            System.err.println("Can't remove\nList is empty!");
+        return temp;
+    }
+
+    public boolean atEnd() {
+        return current.next == null;
     }
 }
