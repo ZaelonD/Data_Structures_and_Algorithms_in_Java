@@ -20,7 +20,8 @@
 4. [Chapter IV. Stacks and Queues](#chapter-iv-stacks-and-queues)  
    4.1. [Write a method display()](#41-write-a-method-display)  
    4.2. [Create a Deque class](#42-create-a-deque-class)  
-   4.3. [Write a stack based on the Deque](#43-write-a-stack-based-on-the-deque)
+   4.3. [Write a stack based on the Deque](#43-write-a-stack-based-on-the-deque)  
+   4.4. [Quiq insert in PriorityQ](#44-quick-insert-in-priotiryq)
 
 ## Chapter I. Overview
 
@@ -567,7 +568,7 @@ public class StackOnDeque {
 }
 ```
 
-### 4.4. Quick insert in PriotiryQ
+### 4.4. Quick insert in PriorityQ
 
 The priority queue features fast removal of the high-priority
 item but slow insertion of new items. Write a program with a revised
@@ -651,3 +652,4 @@ public class PriorityQ {
     }
 }
 ```
+
