@@ -36,4 +36,20 @@ public class ListIterator {
             current = newLink;
         }
     }
+
+    public void insertBefore(long data) {
+        Link newLink = new Link(data);
+        if (!list.isEmpty()) {
+            if (previous != null) {
+                previous.next = newLink;
+                newLink.next = previous.next;
+                current = newLink;
+            } else {
+                newLink.next = list.getFirst();
+                list.setFirst(newLink);
+                reset();
+
+            }
+        }
+    }
 }
