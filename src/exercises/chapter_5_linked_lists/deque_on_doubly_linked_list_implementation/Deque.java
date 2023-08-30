@@ -1,6 +1,7 @@
 package exercises.chapter_5_linked_lists.deque_on_doubly_linked_list_implementation;
 
 import exercises.chapter_5_linked_lists.doubly_linked_list.DoublyLinkedList;
+import exercises.chapter_5_linked_lists.doubly_linked_list.Link;
 
 public class Deque {
     private final DoublyLinkedList list;
@@ -17,12 +18,12 @@ public class Deque {
         list.insertLast(data);
     }
 
-    public void removeLeft() {
-        list.deleteFirst();
+    public Link removeLeft() {
+        return list.deleteFirst();
     }
 
-    public void removeRight() {
-        list.deleteLast();
+    public Link removeRight() {
+        return list.deleteLast();
     }
 
     public long peekFront() {
