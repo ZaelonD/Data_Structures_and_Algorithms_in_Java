@@ -22,6 +22,8 @@
    4.2. [Create a Deque class](#42-create-a-deque-class)  
    4.3. [Write a stack based on the Deque](#43-write-a-stack-based-on-the-deque)  
    4.4. [Quiq insert in PriorityQ](#44-quick-insert-in-priotiryq)
+5. [Chapter V. Linked lists](#chapter-v-linked-lists)  
+   5.1. [PriorityQ on linked list inplementation](#51-priorityq-on-linked-list-inplementation)
 
 ## Chapter I. Overview
 
@@ -653,3 +655,38 @@ public class PriorityQ {
 }
 ```
 
+## Chapter V. Linked Lists
+
+### 5.1. PriorityQ on linked list inplementation
+
+Implement a priority queue based on a sorted linked list.
+The remove operationon the priority queue should remove the item with the smallest key.
+
+```
+import exercises.chapter_5_linked_lists.first_last_list.Link;
+import exercises.chapter_5_linked_lists.sorted_list.SortedList;
+
+public class PriorityQueue {
+    private final SortedList list;
+
+    public PriorityQueue() {
+        this.list = new SortedList();
+    }
+
+    public void insert(long data) {
+        list.insert(data);
+    }
+
+    public Link remove() {
+        return list.remove();
+    }
+
+    public long peek() {
+        return list.peek();
+    }
+
+    public boolean isEmpty() {
+        return list.isEmpty();
+    }
+}
+```
