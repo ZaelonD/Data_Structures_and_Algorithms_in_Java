@@ -90,7 +90,6 @@ public class DoublyLinkedList {
         return desiredLink;
     }
 
-
     public Link find(long key) {
         Link current = first;
         while (current != null && current.data != key) {
@@ -129,5 +128,19 @@ public class DoublyLinkedList {
 
     public boolean isEmpty() {
         return first == null;
+    }
+
+    public long peekFirst() {
+        if (isEmpty()) {
+            System.err.println("Can't peek.\nDeque is empty");
+        }
+        return first.data;
+    }
+
+    public long peekLast() {
+        if (isEmpty()) {
+            System.err.println("Can't peek.\nDeque is empty");
+        }
+        return last.data;
     }
 }
