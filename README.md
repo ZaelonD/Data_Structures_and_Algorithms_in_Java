@@ -23,7 +23,8 @@
    4.3. [Write a stack based on the Deque](#43-write-a-stack-based-on-the-deque)  
    4.4. [Quiq insert in PriorityQ](#44-quick-insert-in-priotiryq)
 5. [Chapter V. Linked lists](#chapter-v-linked-lists)  
-   5.1. [PriorityQ on linked list inplementation](#51-priorityq-on-linked-list-inplementation)
+   5.1. [PriorityQ on linked list inplementation](#51-priorityq-on-linked-list-inplementation)  
+   5.2. [Deque on doubly linked list inplementation](#52-deque-on-doubly-linked-list-inplementation)
 
 ## Chapter I. Overview
 
