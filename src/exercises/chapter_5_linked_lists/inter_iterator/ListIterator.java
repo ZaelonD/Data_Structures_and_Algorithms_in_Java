@@ -25,5 +25,15 @@ public class ListIterator {
         return current;
     }
 
-
+    public void insertAfter(long data) {
+        Link newLink = new Link(data);
+        if (!list.isEmpty()) {
+            newLink.next = current.next;
+            current.next = newLink;
+            nextLink();
+        } else {
+            list.setFirst(newLink);
+            current = newLink;
+        }
+    }
 }
