@@ -15,6 +15,17 @@ public class CircularList {
         }
     }
 
+    public void displayList() {
+        System.out.println("first --> last");
+        Link first = current.next;
+        while (first != current) {
+            System.out.print(first.data + " ");
+            first = first.next;
+        }
+        System.out.print(first.data + " ");
+        System.out.println();
+    }
+
     public boolean isEmpty() {
         return current == null;
     }
