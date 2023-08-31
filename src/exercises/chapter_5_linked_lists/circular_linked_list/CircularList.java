@@ -26,6 +26,20 @@ public class CircularList {
         System.out.println();
     }
 
+    public Link find(long data) {
+        if (!isEmpty()) {
+            Link desiredLink = current.next;
+            while (desiredLink.data != data) {
+                if (desiredLink == current) {
+                    return null;
+                }
+                desiredLink = desiredLink.next;
+            }
+            return desiredLink;
+        }
+        return null;
+    }
+
     public boolean isEmpty() {
         return current == null;
     }
