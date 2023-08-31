@@ -40,6 +40,21 @@ public class CircularList {
         return null;
     }
 
+    public Link remove(long data) {
+        if (!isEmpty()) {
+            Link cur = current.next, prev = current;
+            while (cur.data != data) {
+                if (cur == current) {
+                    return null;
+                }
+                prev = cur;
+                cur = cur.next;
+            }
+            prev.next = cur.next;
+        }
+        return null;
+    }
+
     public boolean isEmpty() {
         return current == null;
     }
