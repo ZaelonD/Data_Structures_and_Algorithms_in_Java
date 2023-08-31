@@ -3,7 +3,7 @@ package exercises.chapter_5_linked_lists.circular_linked_list;
 public class CircularList {
     private Link current;
 
-    public void insert(int data) {
+    public void insert(long data) {
         Link newLink = new Link(data);
         if (!isEmpty()) {
             newLink.next = current.next;
