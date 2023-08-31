@@ -8,8 +8,10 @@ public class CircularList {
         if (!isEmpty()) {
             newLink.next = current.next;
             current.next = newLink;
+            current = newLink;
         } else {
-            current = current.next = newLink;
+            current = newLink;
+            current.next = newLink;
         }
     }
 
