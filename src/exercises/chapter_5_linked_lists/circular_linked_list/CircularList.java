@@ -17,12 +17,12 @@ public class CircularList {
 
     public void displayList() {
         System.out.println("first --> last");
-        Link first = current.next;
-        while (first != current) {
-            first.displayLink();
-            first = first.next;
+        Link cur = current.next;
+        while (cur != current) {
+            cur.displayLink();
+            cur = cur.next;
         }
-        first.displayLink();
+        cur.displayLink();
         System.out.println();
     }
 
