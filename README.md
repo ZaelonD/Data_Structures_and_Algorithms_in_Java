@@ -24,8 +24,8 @@
    4.4. [Quiq insert in PriorityQ](#44-quick-insert-in-priotiryq)
 5. [Chapter V. Linked lists](#chapter-v-linked-lists)  
    5.1. [PriorityQ on linked list inplementation](#51-priorityq-on-linked-list-inplementation)  
-   5.2. [Deque on doubly linked list inplementation](#52-deque-on-doubly-linked-list-inplementation)
-
+   5.2. [Deque on doubly linked list inplementation](#52-deque-on-doubly-linked-list-inplementation)  
+   5.3. [Make a singly linked circular list](#53-make-a-singly-linked-circular-list)
 ## Chapter I. Overview
 
 ### Solving programming projects from the book Data Structures & Algorithms in Java
@@ -738,6 +738,86 @@ public class Deque {
 
     public boolean isEmpty() {
         return list.isEmpty();
+    }
+}
+```
+
+### 5.3. Make a singly linked circular list
+
+A circular list is a linked list in which the last link points back to the first link.
+There are many ways to design a circular list. Sometimes there is a pointer to
+the “start” of the list. However, this makes the list less like a real circle and
+more like an ordinary list that has its end attached to its beginning. Make a
+class for a singly linked circular list that has no end and no beginning. The
+only access to the list is a single reference, current, that can point to any link
+on the list. This reference can move around the list as needed. Your list should handle insertion, searching, and deletion. You may
+find it convenient if these operations take place one link downstream of the
+link pointed to by current. (Because the upstream link is singly linked, you
+can’t get at it without going all the way around the circle.) You should also be
+able to display the list (although you’ll need to break the circle at some arbitrary
+point to print it on the screen). A step() method that moves current
+along to the next link might come in handy too.
+
+**My implementation of Circular linked list:**
+
+```
+public class CircularList {
+    private Link current;
+
+    public void insert(int data) {
+        Link newLink = new Link(data);
+        if (!isEmpty()) {
+            newLink.next = current.next;
+            current.next = newLink;
+            current = newLink;
+        } else {
+            current = newLink;
+            current.next = newLink;
+        }
+    }
+
+    public void displayList() {
+        System.out.println("first --> last");
+        Link cur = current.next;
+        while (cur != current) {
+            cur.displayLink();
+            cur = cur.next;
+        }
+        cur.displayLink();
+        System.out.println();
+    }
+
+    public Link find(long data) {
+        if (!isEmpty()) {
+            Link desiredLink = current.next;
+            while (desiredLink.data != data) {
+                if (desiredLink == current) {
+                    return null;
+                }
+                desiredLink = desiredLink.next;
+            }
+            return desiredLink;
+        }
+        return null;
+    }
+
+    public Link remove(long data) {
+        if (!isEmpty()) {
+            Link cur = current.next, prev = current;
+            while (cur.data != data) {
+                if (cur == current) {
+                    return null;
+                }
+                prev = cur;
+                cur = cur.next;
+            }
+            prev.next = cur.next;
+        }
+        return null;
+    }
+
+    public boolean isEmpty() {
+        return current == null;
     }
 }
 ```
