@@ -19,10 +19,10 @@ public class CircularList {
         System.out.println("first --> last");
         Link first = current.next;
         while (first != current) {
-            System.out.print(first.data + " ");
+            first.displayLink();
             first = first.next;
         }
-        System.out.print(first.data + " ");
+        first.displayLink();
         System.out.println();
     }
 
